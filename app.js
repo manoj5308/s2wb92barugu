@@ -6,6 +6,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var houseRouter = require('./routes/house');
+var addmodRouter = require('./routes/addmods');
+var selectorRouter = require('./routes/selector');
+
+
 
 var app = express();
 
@@ -13,6 +18,9 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use('/house',houseRouter);
+app.use('/addmods',addmodRouter);
+app.use('/selector',selectorRouter);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -3,9 +3,16 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  p Added a word
-
-    br
-  - var btnType = 'secondary'
-  - var btnSize = 'sm'
-  button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize) click me
+  button(type='button' class='btn btn-primary' onclick='moreClaps()') Press Me 
+  br
+  br
+  div(id ="target") Clap for me
+  script. 
+    let clap_count= 0;
+    function moreClaps(){
+    clap_count = clap_count+2;
+    document.getElementById("target").innerHTML =  `Value of clap count now is : ${clap_count}`;
+    console.log(clap_count)
+    }
+  br
+  br
